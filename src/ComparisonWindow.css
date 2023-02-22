@@ -1,0 +1,45 @@
+.paper {
+  width: 33%;
+  padding: 32px;
+  border-right: solid 2px black;
+}
+
+.closeIcon {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.trend {
+  display: flex;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+  
+.up {
+  color: green;
+}
+
+.down {
+  color: red;
+}
+
+.companyName {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.statTable {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+}
+
+.statRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.paper + .paper + .paper {
+  border-right: none;
+}

@@ -1,0 +1,12 @@
+.searchArea {
+  padding-left: 32px;
+  padding-top: 16px;
+}
+
+.searchResults {
+  width: max-content;
+}
+
+.textField {
+  width: 400px;
+}
