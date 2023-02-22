@@ -1,2 +1,6 @@
+- To create an API key for testing purposes, go to https://www.alphavantage.co/support/#api-key
+- Create a .env file and set `VITE_API_KEY='<YOUR_KEY_HERE>'`
 - Setup the project by running `npm install`
 - Start by running `npm run dev`
+- Run unit tests by running `npm run test`
+- To view unit test coverage run `npm run coverage`

@@ -7,12 +7,13 @@ const mockRemoveSelectedCompany = vi.fn();
 
 const initialProps = {
   selectedCompany: {
-    'change percent': '0.1234%',
+    changePercent: '0.1234%',
     high: '123.44',
     low: '120.05',
     name: 'Alphabet',
     price: '122.75',
     symbol: 'ABC',
+    trendingUp: true,
   },
   removeSelectedCompany: mockRemoveSelectedCompany,
 };
@@ -44,7 +45,8 @@ describe('<ComparisonWindow />', () => {
     const updatedProps = {
       selectedCompany: {
         ...initialProps.selectedCompany,
-        'change percent': '-0.2323%',
+        changePercent: '0.2323%',
+        trendingUp: false,
       },
       removeSelectedCompany: mockRemoveSelectedCompany,
     };

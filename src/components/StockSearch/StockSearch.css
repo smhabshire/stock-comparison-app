@@ -5,6 +5,8 @@
 
 .searchResults {
   width: max-content;
+  z-index: 1000;
+  position: absolute;
 }
 
 .textField {
