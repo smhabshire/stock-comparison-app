@@ -1,16 +1,17 @@
-import { render, screen, fireEvent} from '@testing-library/react';
+import { render, screen, fireEvent, within} from '@testing-library/react';
 import React from 'react';
 import { afterEach, describe, it, vi, expect } from 'vitest';
 import { StockSearch } from './StockSearch';
 
 const mockSetSearchKeyword = vi.fn();
+const mockSetSelectedCompanies = vi.fn();
 
 const initialProps = {
   bestMatches: [],
   searchKeyword: '',
   selectedCompanyIds: [],
   setSearchKeyword: mockSetSearchKeyword,
-  setSelectedCompanies: vi.fn(),
+  setSelectedCompanies: mockSetSelectedCompanies,
 };
 
 afterEach(() => {
@@ -25,6 +26,21 @@ describe('<StockSearch />', () => {
     const input = await screen.findByRole("combobox");
     fireEvent.change(input, { target: { value: "testing" } });
     expect(mockSetSearchKeyword).toHaveBeenCalledWith("testing");
+  });
+
+  it('Renders properly when selecting value within bestMatches', async () => {
+    const updatedProps = {
+      ...initialProps,
+      bestMatches: [{ symbol: "ABC", name: "test" }],
+    };
+    rerender(<StockSearch {...updatedProps} />);
+    const autocomplete = screen.getByTestId('stock-search-area');
+    autocomplete.focus();
+    const input = await screen.findByRole("combobox");
+    fireEvent.change(input, { target: { value: "test" } });
+    fireEvent.keyDown(autocomplete, { key: 'ArrowDown' });
+    fireEvent.keyDown(autocomplete, { key: 'Enter' });
+    expect(mockSetSelectedCompanies).toHaveBeenCalledWith({ symbol: 'ABC', name: 'test' });
   });
 
   it('Disables the search input when three stocks are selected', async () => {

@@ -20,7 +20,7 @@ export const StockSearch = ({
   <div className="searchArea">
     <Autocomplete
       disabled={selectedCompanyIds.length === 3}
-      id="stock-search-area"
+      data-testid="stock-search-area"
       clearOnEscape
       freeSolo
       loading={searchKeyword.length > 0 && bestMatches.length === 0}
