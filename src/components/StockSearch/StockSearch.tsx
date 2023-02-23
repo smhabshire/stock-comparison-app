@@ -36,7 +36,7 @@ export const StockSearch = ({
         }
       }}
       inputValue={searchKeyword}
-      getOptionLabel={(option: Company | string) => typeof(option) === "object" ? option?.name : option}
+      getOptionLabel={(option: Company | string) => typeof(option) === "object" ? `${option.name} (${option.symbol})` : option}
       style={{ width: 450 }}
       renderInput={(params) => (
         <TextField
