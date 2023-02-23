@@ -95,7 +95,7 @@ function App() {
       <Typography gutterBottom style={{ paddingLeft: "32px" }} variant="caption">Enter up to 3 stocks to compare the current stock prices.</Typography>
       <StockSearch bestMatches={bestMatches} searchKeyword={searchKeyword} selectedCompanyIds={selectedCompanyIds} setSearchKeyword={setSearchKeyword} setSelectedCompanies={setSelectedCompanyInfo} />
       
-      <div style={{display: "flex"}}>
+      <div style={{display: "flex", marginTop: "32px" }}>
         {selectedCompanies.length > 0 && selectedCompanies.map(company =>
           <ComparisonWindow selectedCompany={company} removeSelectedCompany={removeSelectedCompany} />
         )}
